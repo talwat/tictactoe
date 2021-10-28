@@ -1,0 +1,37 @@
+.red {
+    color: red
+}
+
+td {
+    border: 3px solid black;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+}
+.ttt-container {
+    width: 100%;
+    display: flex;   
+    justify-content: center;
+}
+.cell-symbol {
+    font-size: 40px;
+    margin: 0px;
+}
+.ttt-button {
+    height: 5rem;
+    width: 5rem;
+    background-color: white;
+    border: 0px;
+}
+.turn {
+    font-size: 4rem;
+}
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
