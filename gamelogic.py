@@ -1,15 +1,25 @@
-def game_logic(state, button_pressed):
-    global backround
-    backround = ""
-    global symbols
-    symbols = ("x", "o")
-    global cells
-    cells = [
-        [symbols[1], backround, backround], 
-        [backround, backround, backround], 
-        [backround, backround, backround]
-    ]
-    turn = False
+backround = ""
+symbols = ("x", "o")
+cells = [
+    [backround, backround, backround], 
+    [backround, backround, backround], 
+    [backround, backround, backround]
+]
+turn = False
+
+def cellChange(turn, button_pressed):
+    index = [(int)(button_pressed[0]), (int)(button_pressed[1])]
+    if(turn):
+        cells[index[0]][index[1]] = symbols[1]
+    else:
+        cells[index[0]][index[1]] = symbols[0]
+
+def turnChange():
+    global turn
+    if turn:
+        turn = False
+    else:
+        turn = True
 
 def checkCells():
     for symbol in symbols:
@@ -35,14 +45,3 @@ def start():
     ]
     global turn
     turn = False
-
-def convert(input):
-    temp = 0
-    temp2 = 0
-    for i in range(input):
-        temp = temp + 1
-        if temp > 2:
-            temp2 = temp2 + 1
-            temp = 0
-    finalOutput = (temp2, temp)
-    return finalOutput
