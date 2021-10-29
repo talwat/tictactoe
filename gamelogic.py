@@ -1,9 +1,9 @@
-backround = ""
+background = ""
 symbols = ("x", "o")
 cells = [
-    [backround, backround, backround], 
-    [backround, backround, backround], 
-    [backround, backround, backround]
+    [background, background, background], 
+    [background, background, background], 
+    [background, background, background]
 ]
 turn = False
 
@@ -34,14 +34,21 @@ def checkCells():
             return symbol + ".True"
         elif cells[2][0] == symbol and cells[1][1] == symbol and cells[0][2] == symbol:
             return symbol + ".True"
-    return "false"
-
+    
+    rowCheck = 0
+    for x in cells:
+        if x[0] != background and x[1] != background and x[2] != background:
+            rowCheck += 1
+        else:
+            return "false"
+    if(rowCheck >= 3):
+        return "tie.True"
 def start():
     global cells
     cells = [
-        [backround, backround, backround], 
-        [backround, backround, backround], 
-        [backround, backround, backround]
+        [background, background, background], 
+        [background, background, background], 
+        [background, background, background]
     ]
     global turn
     turn = False

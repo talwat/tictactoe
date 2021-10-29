@@ -1,9 +1,8 @@
 .red {
     color: red
 }
-
 td {
-    border: 3px solid black;
+    border: 5px solid aliceblue;
     height: 5rem;
     width: 5rem;
     text-align: center;
@@ -17,24 +16,42 @@ table {
     justify-content: center;
 }
 .cell-symbol {
-    font-size: 40px;
+    font-size: 70px;
     margin: 0px;
+    font-family: sans-serif;
 }
 .ttt-button {
     height: 5rem;
     width: 5rem;
-    background-color: white;
+    background-color: #222227;
     border: 0px;
 }
 .turn {
     font-size: 4rem;
+    font-family: sans-serif;
 }
 .red {
-    color: red;
+    color: lightcoral;
 }
 .blue {
-    color: blue;
+    color: lightskyblue;
+}
+.gray {
+    color: lightgray;
 }
 .win {
-    font-size: 200px;
+    font-size: 9rem;
+    margin: 10px;
+    font-family: sans-serif;
+}
+.play-again-button {
+    height: 5rem;
+    width: 9rem;
+    font-size: 1.7rem;
+    background-color: #252227;
+    border-color: #1a181b;
+    color: aliceblue;
+}
+html {
+    background-color: #222227;
 }
