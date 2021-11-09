@@ -1,131 +1,124 @@
-<!DOCTYPE html>
-
-<html>
-    <title>Tic Tac Toe</title>
-    <head>
-        <link href="../static/main.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="ttt-container">
-            {% if game == "x.True" %}
-                <h1 class="win red">X WINS</h1>
-            {% elif game == "o.True" %}
-                <h1 class="win blue">O WINS</h1>
-            {% elif game == "tie.True" %}
-                <h1 class="win gray">TIE</h1>
-            {% endif %}
-        </div>
-        <div class="ttt-container">
-            <form action="/" method="post">
-                {% if game == "x.True" or game == "o.True" or game == "tie.True" %}
-                    <button name="play-again-button" class="play-again-button">Play Again</button>
-                {% endif %}
-            </form>
-        </div>
-        
-        {% if game == "false" %}
-        <div class="ttt-container">
-            {% if turn %}
-                <h1 class="turn blue">O's turn</h1>
-            {% else %}
-                <h1 class="turn red">X's turn</h1>
-            {% endif %}
-        </div>
-        <div class="ttt-container">
-            <form action="/" method="post">
-                <table class="board">
-                    <tbody>
-                        <tr>
-                            <td>
-                                {% if cells[0][0] == "x" %}
-                                    <p class="cell-symbol red">{{cells[0][0]}}</p>
-                                {% elif cells[0][0] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[0][0]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-00"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[0][1] == "x" %}
-                                    <p class="cell-symbol red">{{cells[0][1]}}</p>
-                                {% elif cells[0][1] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[0][1]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-01"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[0][2] == "x" %}
-                                    <p class="cell-symbol red">{{cells[0][2]}}</p>
-                                {% elif cells[0][2] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[0][2]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-02"/>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {% if cells[1][0] == "x" %}
-                                    <p class="cell-symbol red">{{cells[1][0]}}</p>
-                                {% elif cells[1][0] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[1][0]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-10"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[1][1] == "x" %}
-                                    <p class="cell-symbol red">{{cells[1][1]}}</p>
-                                {% elif cells[1][1] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[1][1]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-11"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[1][2] == "x" %}
-                                    <p class="cell-symbol red">{{cells[1][2]}}</p>
-                                {% elif cells[1][2] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[1][2]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-12"/>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {% if cells[2][0] == "x" %}
-                                    <p class="cell-symbol red">{{cells[2][0]}}</p>
-                                {% elif cells[2][0] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[2][0]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-20"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[2][1] == "x" %}
-                                    <p class="cell-symbol red">{{cells[2][1]}}</p>
-                                {% elif cells[2][1] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[2][1]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-21"/>
-                                {% endif %}
-                            </td>
-                            <td>
-                                {% if cells[2][2] == "x" %}
-                                    <p class="cell-symbol red">{{cells[2][2]}}</p>
-                                {% elif cells[2][2] == "o" %}
-                                    <p class="cell-symbol blue">{{cells[2][2]}}</p>
-                                {% else %}
-                                    <button type="submit" class=ttt-button name="cell-button-22"/>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </div>
+{% extends "layout.html" %}
+{% block main %}
+<div class="ttt-container">
+    {% if game == "x.True" %}
+        <h1 class="win red redline">X WINS</h1>
+    {% elif game == "o.True" %}
+        <h1 class="win blue blueline">O WINS</h1>
+    {% elif game == "tie.True" %}
+        <h1 class="win gray grayline">TIE</h1>
+    {% endif %}
+</div>
+<div class="ttt-container">
+    <form action="/" method="post">
+        {% if game == "x.True" or game == "o.True" or game == "tie.True" %}
+            <button name="play-again-button" class="play-again-button">Play Again</button>
         {% endif %}
-    </body>
-</html>
+    </form>
+</div>
+
+{% if game == "false" %}
+<div class="ttt-container">
+    {% if turn %}
+        <h1 class="turn blue">O's turn</h1>
+    {% else %}
+        <h1 class="turn red">X's turn</h1>
+    {% endif %}
+</div>
+<div class="ttt-container">
+    <form action="/" method="post">
+        <table class="board">
+            <tbody>
+                <tr>
+                    <td>
+                        {% if cells[0][0] == "x" %}
+                            <p class="cell-symbol red">{{cells[0][0]}}</p>
+                        {% elif cells[0][0] == "o" %}
+                            <p class="cell-symbol blue">{{cells[0][0]}}</p>
+                        {% else %}
+                            <button type="submit" class=ttt-button name="cell-button-00" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[0][1] == "x" %}
+                            <p class="cell-symbol red">{{cells[0][1]}}</p>
+                        {% elif cells[0][1] == "o" %}
+                            <p class="cell-symbol blue">{{cells[0][1]}}</p>
+                        {% else %}
+                            <button type="submit" class=ttt-button name="cell-button-01" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[0][2] == "x" %}
+                        <p class="cell-symbol red">{{cells[0][2]}}</p>
+                        {% elif cells[0][2] == "o" %}
+                        <p class="cell-symbol blue">{{cells[0][2]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-02" />
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if cells[1][0] == "x" %}
+                        <p class="cell-symbol red">{{cells[1][0]}}</p>
+                        {% elif cells[1][0] == "o" %}
+                        <p class="cell-symbol blue">{{cells[1][0]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-10" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[1][1] == "x" %}
+                        <p class="cell-symbol red">{{cells[1][1]}}</p>
+                        {% elif cells[1][1] == "o" %}
+                        <p class="cell-symbol blue">{{cells[1][1]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-11" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[1][2] == "x" %}
+                        <p class="cell-symbol red">{{cells[1][2]}}</p>
+                        {% elif cells[1][2] == "o" %}
+                        <p class="cell-symbol blue">{{cells[1][2]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-12" />
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if cells[2][0] == "x" %}
+                        <p class="cell-symbol red">{{cells[2][0]}}</p>
+                        {% elif cells[2][0] == "o" %}
+                        <p class="cell-symbol blue">{{cells[2][0]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-20" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[2][1] == "x" %}
+                        <p class="cell-symbol red">{{cells[2][1]}}</p>
+                        {% elif cells[2][1] == "o" %}
+                        <p class="cell-symbol blue">{{cells[2][1]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-21" />
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if cells[2][2] == "x" %}
+                        <p class="cell-symbol red">{{cells[2][2]}}</p>
+                        {% elif cells[2][2] == "o" %}
+                        <p class="cell-symbol blue">{{cells[2][2]}}</p>
+                        {% else %}
+                        <button type="submit" class=ttt-button name="cell-button-22" />
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Tic Tac Toe</title>
+    <head>
+        <link href="../static/main.css" rel="stylesheet">
+    </head>
+    <body>
+        {% block main %}{% endblock %}
+        <script type=text/javascript src="
+            {{url_for('static', filename='js/main.js')}}
+        "></script>
+    </body>
+</html>

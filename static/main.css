@@ -23,7 +23,7 @@ table {
 .ttt-button {
     height: 5rem;
     width: 5rem;
-    background-color: #222227;
+    background-color: transparent;
     border: 0px;
 }
 .turn {
@@ -31,10 +31,10 @@ table {
     font-family: sans-serif;
 }
 .red {
-    color: lightcoral;
+    color: #FF3864;
 }
 .blue {
-    color: lightskyblue;
+    color: #7678ED;
 }
 .gray {
     color: lightgray;
@@ -43,6 +43,18 @@ table {
     font-size: 9rem;
     margin: 10px;
     font-family: sans-serif;
+}
+.redline {
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #FF1F4F;
+}
+.blueline {
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #5D5FEA;
+}
+.grayline {
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: darkgray;
 }
 .play-again-button {
     height: 5rem;
@@ -53,5 +65,5 @@ table {
     color: aliceblue;
 }
 html {
-    background-color: #222227;
+    background-color: #343434;
 }
